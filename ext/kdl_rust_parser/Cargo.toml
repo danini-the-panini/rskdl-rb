@@ -1,0 +1,14 @@
+[package]
+name = "kdl_rust_parser"
+version = "0.1.0"
+edition = "2021"
+authors = ["Dani Smith <code@danini.dev>"]
+license = "MIT"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+magnus = { version = "0.6.2" }
+kdl = { version = "4.6.0" }

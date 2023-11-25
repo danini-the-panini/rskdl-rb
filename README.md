@@ -1,24 +1,30 @@
 # KdlRustParser
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/kdl_rust_parser`. To experiment with that code, run `bin/console` for an interactive prompt.
+Use the [kdl-rs](https://github.com/kdl-org/kdl-rs) parser to create [kdl-rb](https://github.com/danini-the-panini/kdl-rb) documents
 
 ## Installation
-
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+    $ bundle add kdl_rust_parser
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+    $ gem install kdl_rust_parser
 
 ## Usage
 
-TODO: Write usage instructions here
+Just require `kdl_rust_parser` and use KDL normally.
+
+```ruby
+require "kdl_rust_parser"
+
+KDL.parse_document(a_string) #=> KDL::Document
+```
+
+## Caveats
+
+1. Type conversions are not performed. e.g. `(date)"2020-03-14"` will remain a String. Also, the `type_parsers` parser option is ignored.
+2. Very small or large floats will not keep their precision. e.g. `12E-1000` will be `0.0` and `12E+1000` will be `Infinity`.
 
 ## Development
 
@@ -28,7 +34,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/kdl_rust_parser.
+Bug reports and pull requests are welcome on GitHub at https://github.com/danini-the-panini/kdl_rust_parser.
 
 ## License
 

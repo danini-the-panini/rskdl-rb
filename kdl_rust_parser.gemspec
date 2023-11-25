@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Dani Smith"]
   spec.email = ["code@danini.dev"]
 
-  spec.summary = "Rust parser to kdl-rb"
-  spec.description = "Uses the kdl-rs parser to create kdl-rb documents"
+  spec.summary = "Rust parser for kdl-rb"
+  spec.description = "Use the kdl-rs parser to create kdl-rb documents"
   spec.homepage = "https://github.com/danini-the-panini/kdl_rust_parser"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"

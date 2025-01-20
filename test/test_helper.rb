@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
-require "kdl_rust_parser"
+require "rskdl"
 
 require "minitest/autorun"
 

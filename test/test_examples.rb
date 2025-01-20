@@ -4,7 +4,7 @@ require "test_helper"
 
 class TestExamples < Minitest::Test
   def test_ci
-    doc = ::KdlRustParser.parse_document(File.read(File.join(__dir__, "examples/ci.kdl")))
+    doc = ::RsKDL.parse(File.read(File.join(__dir__, "/kdl-org/examples/ci.kdl")))
     nodes = nodes! {
       name("CI")
       on "push", "pull_request"
@@ -22,8 +22,8 @@ class TestExamples < Minitest::Test
               components "rustfmt"
               override true
             }
-            step "rustfmt", run: "cargo fmt --all -- --check"
-            step "docs", run: "cargo doc --no-deps"
+            step("rustfmt") { run "cargo", "fmt", "--all", "--", "--check" }
+            step("docs") { run "cargo", "doc", "--no-deps" }
           }
         }
         build_and_test("Build & Test") {
@@ -43,8 +43,9 @@ class TestExamples < Minitest::Test
               components "clippy"
               override true
             }
-            step "Clippy", run: "cargo clippy --all -- -D warnings"
-            step "Run tests", run: "cargo test --all --verbose"
+            step("Clippy") { run "cargo", "clippy", "--all", "--", "-D", "warnings" }
+            step("Run tests") { run "cargo", "test", "--all", "--verbose" }
+            step "Other Stuff", run: "echo foo\necho bar\necho baz"
           }
         }
       }
@@ -53,12 +54,12 @@ class TestExamples < Minitest::Test
   end
 
   def test_cargo
-    doc = ::KDL.parse_document(File.read(File.join(__dir__, "examples/Cargo.kdl")))
+    doc = ::RsKDL.parse(File.read(File.join(__dir__, "kdl-org/examples/Cargo.kdl")))
     nodes = nodes! {
       package {
         name "kdl"
         version "0.0.0"
-        description "kat's document language"
+        description "The kdl document language"
         authors "Kat Marchán <kzm@zkat.tech>"
         _ "license-file", "LICENSE.md"
         edition "2018"
@@ -72,7 +73,7 @@ class TestExamples < Minitest::Test
   end
 
   def test_nuget
-    doc = ::KdlRustParser.parse_document(File.read(File.join(__dir__, "examples/nuget.kdl")))
+    doc = ::RsKDL.parse(File.read(File.join(__dir__, "kdl-org/examples/nuget.kdl")))
     # This file is particularly large. It would be nice to validate it, but for now
     # I'm just going to settle for making sure it parses.
     refute_nil doc

@@ -1,5 +1,5 @@
 [package]
-name = "kdl_rust_parser"
+name = "rskdl"
 version = "0.1.0"
 edition = "2021"
 authors = ["Dani Smith <code@danini.dev>"]
@@ -10,5 +10,5 @@ publish = false
 crate-type = ["cdylib"]
 
 [dependencies]
-magnus = { version = "0.6.2" }
-kdl = { version = "4.6.0" }
+magnus = { version = "0.7.1" }
+kdl = { version = "6.3.2" }

@@ -14,12 +14,12 @@ class TestSpec < Minitest::Test
       define_method "test_#{input_name}_matches_expected_output" do
         input = File.read(input_path)
         expected = File.read(expected_path)
-        assert_equal expected, ::KdlRustParser.parse_document(input).to_s
+        assert_equal expected, ::RsKDL.parse(input).to_s
       end
     else
       define_method "test_#{input_name}_does_not_parse" do
         input = File.read(input_path)
-        assert_raises { ::KdlRustParser.parse_document(input) }
+        assert_raises { ::RsKDL.parse(input) }
       end
     end
   end

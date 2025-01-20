@@ -2,8 +2,8 @@
 
 require "test_helper"
 
-class TestKDLRustParser < Minitest::Test
+class TestRsKDL < Minitest::Test
   def test_that_it_has_a_version_number
-    refute_nil ::KdlRustParser::VERSION
+    refute_nil ::RsKDL::VERSION
   end
 end

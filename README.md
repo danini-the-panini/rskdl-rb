@@ -1,24 +1,24 @@
-# KdlRustParser
+# RsKDL
 
 Use the [kdl-rs](https://github.com/kdl-org/kdl-rs) parser to create [kdl-rb](https://github.com/danini-the-panini/kdl-rb) documents
 
 ## Installation
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add kdl_rust_parser
+    $ bundle add rskdl
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install kdl_rust_parser
+    $ gem install rskdl
 
 ## Usage
 
-Just require `kdl_rust_parser` and use KDL normally.
+Just require `rskdl` and use KDL normally.
 
 ```ruby
-require "kdl_rust_parser"
+require "rskdl"
 
-KDL.parse_document(a_string) #=> KDL::Document
+KDL.parse(a_string) #=> KDL::Document
 ```
 
 ## Caveats
@@ -34,7 +34,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/danini-the-panini/kdl_rust_parser.
+Bug reports and pull requests are welcome on GitHub at https://github.com/danini-the-panini/rskdl.
 
 ## License
 

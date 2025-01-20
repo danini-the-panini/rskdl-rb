@@ -3,5 +3,5 @@
 # in the ext/ directory.
 
 [workspace]
-members = ["./ext/kdl_rust_parser"]
+members = ["./ext/rskdl"]
 resolver = "2"
